@@ -617,6 +617,7 @@ document.addEventListener('keydown', (e) => {
     if (data.username) {
       currentUsername = data.username;
       document.getElementById('current-username').textContent = data.username;
+      document.getElementById('reports-link').hidden = data.username !== 'sam';
     }
   } catch {
     // If the session check itself fails, fall through and let the
