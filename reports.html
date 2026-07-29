@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reports · Mission Control Designs CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <span class="brand-mark">MC</span>
+        <h1>Mission Control<span>Reports</span></h1>
+      </div>
+      <div class="header-actions">
+        <span id="current-username" class="current-username"></span>
+        <a href="index.html" class="btn">Back to CRM</a>
+        <button id="logout-btn" class="btn logout-btn">Log Out</button>
+      </div>
+    </header>
+
+    <div id="reports-content">
+      <div id="stat-grid" class="stat-grid"></div>
+
+      <div class="report-grid">
+        <section class="report-panel">
+          <h2>Activity by Person</h2>
+          <div id="activity-by-person" class="bar-list"></div>
+        </section>
+
+        <section class="report-panel">
+          <h2>Leads by Owner</h2>
+          <div id="leads-by-owner" class="bar-list"></div>
+        </section>
+
+        <section class="report-panel">
+          <h2>Leads by Tag</h2>
+          <div id="leads-by-tag" class="bar-list"></div>
+        </section>
+
+        <section class="report-panel">
+          <h2>Activity — Last 14 Days</h2>
+          <div id="activity-trend" class="trend-chart"></div>
+        </section>
+      </div>
+
+      <div class="report-grid">
+        <section class="report-panel">
+          <h2>Most Engaged Leads</h2>
+          <ol id="top-contacts" class="ranked-list"></ol>
+        </section>
+
+        <section class="report-panel">
+          <h2>Recent Activity</h2>
+          <ul id="recent-activity" class="feed-list"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="reports.js"></script>
+</body>
+</html>
