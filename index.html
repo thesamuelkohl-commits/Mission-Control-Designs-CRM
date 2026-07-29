@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V4D6ZQV6Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2V4D6ZQV6Q');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7072826210873110"
+       crossorigin="anonymous"></script>
+
+  <title>Eat With Sam K — Every Spot I've Rated, On One Map</title>
+  <meta name="description" content="Follow Sam K's food reviews: an interactive map of every restaurant rated out of 10, with video reviews on Instagram, TikTok, and YouTube." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.eatwithsamk.com/index.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Eat With Sam K — Every Spot I've Rated, On One Map" />
+  <meta property="og:description" content="Follow Sam K's food reviews: an interactive map of every restaurant rated out of 10, with video reviews on Instagram, TikTok, and YouTube." />
+  <meta property="og:url" content="https://www.eatwithsamk.com/index.html" />
+  <meta property="og:image" content="https://www.eatwithsamk.com/images/logo.png" />
+  <meta property="og:site_name" content="Eat With Sam K" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Eat With Sam K — Every Spot I've Rated, On One Map" />
+  <meta name="twitter:description" content="Follow Sam K's food reviews: an interactive map of every restaurant rated out of 10." />
+  <meta name="twitter:image" content="https://www.eatwithsamk.com/images/logo.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Eat With Sam K",
+    "url": "https://www.eatwithsamk.com/index.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eat With Sam K",
+    "url": "https://www.eatwithsamk.com/index.html",
+    "logo": "https://www.eatwithsamk.com/images/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/eatwithsamk",
+      "https://www.tiktok.com/@eatwithsamk",
+      "https://www.youtube.com/@eatwithsamk"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html"><img class="logo-img" src="images/logo.png?v=2" alt="Eat With Sam K logo" /> Eat With Sam K</a>
+      <nav class="main-nav" data-nav="home"></nav>
+      <div class="social-row" data-socials></div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <img class="hero-logo" src="images/logo.png?v=2" alt="Eat With Sam K — Good Food. Real Reviews. Good Times." />
+    <h1>Every bite, <span class="accent">rated</span>.<br />Every spot, on the map.</h1>
+    <p data-tagline></p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num" id="stat-places">0</div><div class="label">Places Rated</div></div>
+      <div class="stat"><div class="num" id="stat-cities">0</div><div class="label">Cities</div></div>
+      <div class="stat"><div class="num" id="stat-avg">0</div><div class="label">Avg Rating</div></div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <div id="map"></div>
+    </div>
+  </section>
+
+  <section class="places-section" id="places">
+    <div class="container">
+      <div class="toolbar reveal">
+        <h2>Recent Reviews</h2>
+        <a class="btn btn-ghost" href="reviews.html">See All Reviews →</a>
+      </div>
+      <div class="cards-grid" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="places-section">
+    <div class="container">
+      <div class="toolbar reveal">
+        <h2>Best Of Guides</h2>
+        <a class="btn btn-ghost" href="blog.html">See All Guides →</a>
+      </div>
+      <div class="blog-grid" id="home-blog"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer" data-footer></footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/data.js?v=6"></script>
+  <script src="js/blog-data.js?v=14"></script>
+  <script src="js/common.js?v=11"></script>
+  <script src="js/app.js?v=5"></script>
+</body>
+</html>

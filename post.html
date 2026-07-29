@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2V4D6ZQV6Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2V4D6ZQV6Q');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7072826210873110"
+       crossorigin="anonymous"></script>
+
+  <title>Best Of Post — Eat With Sam K</title>
+  <link rel="icon" type="image/png" href="images/favicon.png?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html"><img class="logo-img" src="images/logo.png?v=2" alt="Eat With Sam K logo" /> Eat With Sam K</a>
+      <nav class="main-nav" data-nav="blog"></nav>
+      <div class="social-row" data-socials></div>
+    </div>
+  </header>
+
+  <main class="post-wrap" id="post"></main>
+
+  <footer class="site-footer" data-footer></footer>
+
+  <script src="js/data.js?v=6"></script>
+  <script src="js/blog-data.js?v=14"></script>
+  <script src="js/common.js?v=11"></script>
+  <script>
+    function setMeta(name, content, attr) {
+      attr = attr || "name";
+      let tag = document.head.querySelector(`meta[${attr}="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    }
+
+    const id = new URLSearchParams(location.search).get("id");
+    const post = BLOG_POSTS.find((p) => p.id === id);
+    const el = document.getElementById("post");
+
+    if (!post) {
+      setMeta("robots", "noindex, follow");
+      el.innerHTML = `
+        <a class="post-back" href="blog.html">← Back to Best Of</a>
+        <h1>Post not found 🤔</h1>
+        <p>That post may have moved. Head back to Best Of to see everything.</p>`;
+    } else {
+      const title = post.title + " — Eat With Sam K";
+      const description = post.excerpt;
+      const canonical = `https://www.eatwithsamk.com/post.html?id=${post.id}`;
+      const ogImage = "https://www.eatwithsamk.com/images/logo.png";
+
+      document.title = title;
+      setMeta("description", description);
+      setMeta("robots", "index, follow");
+
+      let canon = document.head.querySelector('link[rel="canonical"]');
+      if (!canon) {
+        canon = document.createElement("link");
+        canon.setAttribute("rel", "canonical");
+        document.head.appendChild(canon);
+      }
+      canon.setAttribute("href", canonical);
+
+      setMeta("og:type", "article", "property");
+      setMeta("og:title", title, "property");
+      setMeta("og:description", description, "property");
+      setMeta("og:url", canonical, "property");
+      setMeta("og:image", ogImage, "property");
+      setMeta("og:site_name", "Eat With Sam K", "property");
+      setMeta("twitter:card", "summary");
+      setMeta("twitter:title", title);
+      setMeta("twitter:description", description);
+      setMeta("twitter:image", ogImage);
+
+      const jsonLd = document.createElement("script");
+      jsonLd.type = "application/ld+json";
+      jsonLd.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: post.title,
+        datePublished: post.date,
+        author: { "@type": "Person", name: "Sam K" },
+        publisher: { "@type": "Organization", name: "Eat With Sam K" },
+        description: post.excerpt,
+        url: canonical,
+      });
+      document.head.appendChild(jsonLd);
+
+      if (post.faq && post.faq.length) {
+        const faqLd = document.createElement("script");
+        faqLd.type = "application/ld+json";
+        faqLd.textContent = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faq.map((qa) => ({
+            "@type": "Question",
+            name: qa.question,
+            acceptedAnswer: { "@type": "Answer", text: qa.answer },
+          })),
+        });
+        document.head.appendChild(faqLd);
+      }
+
+      const fmt = formatPostDate(post.date);
+      el.innerHTML = `
+        <a class="post-back" href="blog.html">← Back to Best Of</a>
+        <div class="post-emoji">${post.emoji}</div>
+        <h1>${post.title}</h1>
+        <div class="blog-meta"><span class="pill">${post.city}</span><span>${fmt}</span></div>
+        <div class="post-body">${post.content}</div>`;
+
+      if (el.querySelector(".instagram-media")) {
+        const igScript = document.createElement("script");
+        igScript.async = true;
+        igScript.src = "//www.instagram.com/embed.js";
+        document.body.appendChild(igScript);
+      }
+    }
+  </script>
+</body>
+</html>
